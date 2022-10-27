@@ -1,0 +1,20 @@
+// export default defineEventHandler((event) => {
+//   console.log('New request: ' + event.req.url)
+// })
+
+const paymentGlobal = defineNuxtRouteMiddleware((to, from) => {
+  // if (to.params.id === '1') {
+  //   console.log('....nooo')
+  //   return abortNavigation()
+  // }
+  console.log('generic middleware')
+  if (to.path === '/payment/success') {
+    console.log('redirect to about')
+    return navigateTo('/about?orderNo=123')
+  }
+
+  // return navigateTo('/about')
+  // return abortNavigation()
+})
+// rawangshops.com
+export default paymentGlobal
